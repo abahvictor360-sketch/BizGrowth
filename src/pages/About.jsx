@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Target, HeartHandshake, Lightbulb } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
 import Portrait from '../components/Portrait.jsx'
+import CountUp from '../components/CountUp.jsx'
 import { teamList } from '../data/team.js'
 
 const numbers = [
@@ -12,7 +13,7 @@ const numbers = [
 ]
 
 const values = [
-  { icon: Target, title: 'Results first', text: 'We measure success by your growth — revenue, customers and time saved.' },
+  { icon: Target, title: 'Results first', text: 'We measure success by your growth: revenue, customers and time saved.' },
   { icon: HeartHandshake, title: 'True partnership', text: 'We work as an extension of your team, with honest advice and clear reporting.', tone: 'teal' },
   { icon: Lightbulb, title: 'Simple by design', text: 'Powerful tools should feel effortless. We remove complexity, not capability.', tone: 'dark' },
 ]
@@ -30,7 +31,7 @@ export default function About() {
         <div className="stats">
           {numbers.map((x, i) => (
             <Reveal key={x.l} delay={i * 80} className="stat glass" style={{ display: 'block' }}>
-              <div className="values-num">{x.n}</div>
+              <div className="values-num">{x.n === '2019' ? x.n : <CountUp value={x.n} />}</div>
               <div className="label">{x.l}</div>
             </Reveal>
           ))}
@@ -44,7 +45,7 @@ export default function About() {
         </div>
         <div className="team">
           {teamList.map((p, i) => (
-            <Reveal key={p.name} delay={i * 80} className="member glass glass-hover">
+            <Reveal key={p.name} delay={i * 80} className="member glass glass-hover tilt">
               <Portrait person={p} dark={i % 2 === 1} />
               <div className="name">{p.name}</div>
               <div className="role">{p.role}</div>
@@ -71,7 +72,7 @@ export default function About() {
       <Reveal className="section">
         <div className="cta glass glass-dark">
           <h2>Let’s build your growth story</h2>
-          <p>Tell us where you want to be — we’ll show you how to get there.</p>
+          <p>Tell us where you want to be, and we’ll show you how to get there.</p>
           <div className="row">
             <Link to="/contact" className="btn btn-primary">Get in touch <ArrowRight size={16} /></Link>
           </div>

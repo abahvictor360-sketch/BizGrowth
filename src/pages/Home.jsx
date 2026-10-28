@@ -3,6 +3,7 @@ import { ArrowRight, Search, Layers, Sparkles, Hexagon, Triangle, Circle, Square
 import HeroArt from '../components/HeroArt.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Portrait from '../components/Portrait.jsx'
+import CountUp from '../components/CountUp.jsx'
 import { team, teamList } from '../data/team.js'
 
 const stats = [
@@ -18,14 +19,18 @@ export default function Home() {
       {/* Hero */}
       <section className="hero">
         <div>
-          <span className="eyebrow"><span className="dot" />New: AI-powered growth insights</span>
-          <h1>Grow your business with <span className="grad-text">smart digital</span> solutions</h1>
-          <p className="lead">BizGrowth brings your analytics, marketing and automation into one clear workspace — so you can spot opportunities faster and scale with confidence.</p>
-          <div className="hero-actions">
+          <span className="eyebrow enter" style={{ '--i': 0 }}><span className="dot" />New: AI-powered growth insights</span>
+          <h1 className="hero-title">
+            {['Grow', 'your', 'business', 'with'].map((w, i) => <span key={w} className="word" style={{ '--i': i + 1 }}>{w} </span>)}
+            <span className="word grad-text" style={{ '--i': 5 }}>smart digital</span>{' '}
+            <span className="word" style={{ '--i': 6 }}>solutions</span>
+          </h1>
+          <p className="lead enter" style={{ '--i': 7 }}>BizGrowth brings your analytics, marketing and automation into one clear workspace, so you can spot opportunities faster and scale with confidence.</p>
+          <div className="hero-actions enter" style={{ '--i': 8 }}>
             <Link to="/pricing" className="btn btn-primary"><span className="ico"><Sparkles size={14} /></span>Get started</Link>
             <Link to="/solutions" className="btn btn-glass"><Search size={16} />Explore solutions</Link>
           </div>
-          <div className="hero-proof">
+          <div className="hero-proof enter" style={{ '--i': 9 }}>
             <div className="avatars">
               {teamList.map((p) => (
                 <span key={p.name}><img src={p.img} alt="" /></span>
@@ -62,14 +67,15 @@ export default function Home() {
                   <stop offset="1" stopColor="#7d70ff" stopOpacity="0" />
                 </linearGradient>
               </defs>
-              <path d="M0 80 C40 70 60 90 100 72 S160 30 200 48 S270 82 310 40 S370 18 400 22 L400 110 L0 110Z" fill="url(#area)" />
-              <path d="M0 80 C40 70 60 90 100 72 S160 30 200 48 S270 82 310 40 S370 18 400 22" fill="none" stroke="#a99cff" strokeWidth="2.5" />
+              <path className="chart-area" d="M0 80 C40 70 60 90 100 72 S160 30 200 48 S270 82 310 40 S370 18 400 22 L400 110 L0 110Z" fill="url(#area)" />
+              <path className="chart-line" pathLength="1" d="M0 80 C40 70 60 90 100 72 S160 30 200 48 S270 82 310 40 S370 18 400 22" fill="none" stroke="#a99cff" strokeWidth="2.5" />
+              <circle className="chart-dot" r="5" fill="#fff" stroke="#7d70ff" strokeWidth="3" cx="400" cy="22" />
               <path d="M0 95 C50 90 90 98 140 86 S240 70 290 76 S360 60 400 58" fill="none" stroke="#5fc7c0" strokeWidth="2" strokeDasharray="4 6" />
             </svg>
           </div>
           <div className="dash-stats">
             <span className="muted" style={{ color: 'rgba(255,255,255,.6)', fontSize: 13 }}>Net revenue · this month</span>
-            <span className="big">$38,350</span>
+            <span className="big"><CountUp value="$38,350" /></span>
             <span className="up">▲ 18.4% vs last month</span>
           </div>
         </div>
@@ -79,10 +85,10 @@ export default function Home() {
       <section className="section-sm">
         <div className="stats">
           {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 80} className="stat glass glass-hover">
+            <Reveal key={s.label} delay={i * 80} className="stat glass glass-hover tilt">
               <div>
                 <div className="label">{s.label}</div>
-                <div className="num">{s.num}</div>
+                <div className="num"><CountUp value={s.num} /></div>
               </div>
               <span className="pill">View</span>
             </Reveal>
@@ -97,10 +103,10 @@ export default function Home() {
           <p>From strategy to execution, BizGrowth gives every team the tools and talent to move faster.</p>
         </div>
         <div className="bento">
-          <Reveal className="tile tile-solutions glass glass-dark">
+          <Reveal className="tile tile-solutions glass glass-dark tilt">
             <Sparkles size={22} color="#b7aeff" />
             <h3>Tailored solutions</h3>
-            <p>We design a growth plan around your goals, market and budget — then build the dashboards and automations to execute it.</p>
+            <p>We design a growth plan around your goals, market and budget, then build the dashboards and automations to execute it.</p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 8, fontSize: 14, color: 'rgba(255,255,255,.8)' }}>
               <li><Check size={14} color="#b7aeff" /> Growth audit &amp; roadmap</li>
               <li><Check size={14} color="#b7aeff" /> Custom KPI tracking</li>
@@ -114,7 +120,7 @@ export default function Home() {
             <div style={{ display: 'grid', gap: 16 }}>
               <span className="eyebrow" style={{ justifySelf: 'start' }}><span className="dot" />Marketing</span>
               <h3>Marketing dashboards that drive decisions</h3>
-              <p className="muted" style={{ fontSize: 15 }}>Every campaign, channel and conversion in one live view. Know what works — and double down on it.</p>
+              <p className="muted" style={{ fontSize: 15 }}>Every campaign, channel and conversion in one live view. Know what works, and double down on it.</p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                 <Link to="/solutions" className="btn btn-glass btn-sm">See dashboards</Link>
                 <span className="toggle" aria-hidden="true" />
@@ -130,10 +136,10 @@ export default function Home() {
                 <span className="val" style={{ fontSize: 15, opacity: .8 }}>+12.6%</span>
               </div>
               <div className="bars">
-                {[40, 65, 50, 80, 58, 92, 70, 100].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}
+                {[40, 65, 50, 80, 58, 92, 70, 100].map((h, i) => <span key={i} style={{ height: `${h}%`, '--i': i }} />)}
               </div>
             </Reveal>
-            <Reveal delay={240} className="person-card glass">
+            <Reveal delay={240} className="person-card glass tilt">
               <Portrait person={team.david} dark />
               <div>
                 <div className="name">{team.david.name}</div>
@@ -151,7 +157,7 @@ export default function Home() {
           <Reveal className="growth glass">
             <span className="pill pill-dark" style={{ alignSelf: 'flex-end' }}>Plans</span>
             <h2>Grow your business with <span className="grad-text">personalized</span> strategies</h2>
-            <p className="muted">Pick a plan that fits where you are today. Upgrade, downgrade or cancel any time — no lock-in.</p>
+            <p className="muted">Pick a plan that fits where you are today. Upgrade, downgrade or cancel any time. No lock-in.</p>
             <div className="price-row">
               {[
                 { name: 'Starter', p: '$29' },
@@ -174,7 +180,7 @@ export default function Home() {
             <div className="float-stat glass glass-tint">
               <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--ink-2)' }}>Growth score</div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginTop: 8 }}>
-                <span className="n">58</span>
+                <span className="n"><CountUp value="58" /></span>
                 <span className="fab" style={{ position: 'static', width: 36, height: 36, background: 'var(--night)' }}><ArrowUpRight size={16} /></span>
               </div>
             </div>
@@ -190,11 +196,18 @@ export default function Home() {
       {/* Logos */}
       <Reveal className="section-sm">
         <div className="logos glass">
-          <span><Hexagon size={20} />Lumina</span>
-          <span><Triangle size={20} />Vertex</span>
-          <span><Circle size={20} />Orbit&amp;Co</span>
-          <span><Square size={20} />Blocklabs</span>
-          <span><Sparkles size={20} />Nova</span>
+          <div className="marquee">
+            {[0, 1].map((k) => (
+              <div className="marquee-track" key={k} aria-hidden={k === 1}>
+                <span><Hexagon size={20} />Lumina</span>
+                <span><Triangle size={20} />Vertex</span>
+                <span><Circle size={20} />Orbit&amp;Co</span>
+                <span><Square size={20} />Blocklabs</span>
+                <span><Sparkles size={20} />Nova</span>
+                <span><Layers size={20} />Stackwise</span>
+              </div>
+            ))}
+          </div>
         </div>
       </Reveal>
 

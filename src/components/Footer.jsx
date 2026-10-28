@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer glass glass-dark">
       <div>
         <Link to="/" className="brand"><Logo /><span>Biz<b>Growth</b></span></Link>
-        <p className="about">Smart digital solutions that help ambitious businesses measure, automate and grow — all from one beautiful workspace.</p>
+        <p className="about">Smart digital solutions that help ambitious businesses measure, automate and grow, all from one beautiful workspace.</p>
       </div>
       <div>
         <h5>Product</h5>

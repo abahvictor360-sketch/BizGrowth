@@ -3,7 +3,7 @@ import zainab from '../assets/team/zainab.webp'
 import david from '../assets/team/david.webp'
 import kunle from '../assets/team/kunle.webp'
 
-// Placeholder names and roles — replace with the real ones.
+// Placeholder names and roles. Replace with the real ones.
 export const team = {
   amara: { name: 'Amara Okafor', role: 'Founder & CEO', img: amara },
   zainab: { name: 'Zainab Bello', role: 'Head of Marketing', img: zainab },

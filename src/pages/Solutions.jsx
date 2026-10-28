@@ -6,7 +6,7 @@ import { team } from '../data/team.js'
 
 const solutions = [
   { icon: BarChart3, title: 'Business analytics', text: 'Live dashboards that connect sales, finance and marketing data into one clear picture.', points: ['Real-time KPIs', 'Custom reports', 'Forecasting'] },
-  { icon: Megaphone, title: 'Digital marketing', text: 'Data-led campaigns across search, social and email — optimised for return, not vanity.', points: ['SEO & paid ads', 'Social strategy', 'Email automation'], tone: 'teal' },
+  { icon: Megaphone, title: 'Digital marketing', text: 'Data-led campaigns across search, social and email, optimised for return, not vanity.', points: ['SEO & paid ads', 'Social strategy', 'Email automation'], tone: 'teal' },
   { icon: Workflow, title: 'Process automation', text: 'Remove repetitive work with smart workflows that run quietly in the background.', points: ['No-code builders', '200+ integrations', 'Approval flows'], tone: 'dark' },
   { icon: Globe, title: 'Web & e-commerce', text: 'Fast, beautiful websites and online stores built to convert visitors into customers.', points: ['Conversion design', 'Payments', 'Hosting & care'], tone: 'teal' },
   { icon: Users, title: 'CRM & sales enablement', text: 'Track every lead and relationship so your team always knows the next best action.', points: ['Pipeline views', 'Lead scoring', 'Sales playbooks'], tone: 'dark' },
@@ -16,7 +16,7 @@ const solutions = [
 const steps = [
   { t: 'Discover', d: 'We audit your business, data and goals to find the biggest growth levers.' },
   { t: 'Design', d: 'A tailored roadmap with clear milestones, budgets and KPIs.' },
-  { t: 'Deploy', d: 'We build dashboards, campaigns and automations — and train your team.' },
+  { t: 'Deploy', d: 'We build dashboards, campaigns and automations, then train your team.' },
   { t: 'Grow', d: 'Continuous optimisation with monthly reviews and expert support.' },
 ]
 
@@ -32,7 +32,7 @@ export default function Solutions() {
       <section className="section-sm">
         <div className="grid-3">
           {solutions.map((s, i) => (
-            <Reveal key={s.title} delay={(i % 3) * 80} className="feature glass glass-hover">
+            <Reveal key={s.title} delay={(i % 3) * 80} className="feature glass glass-hover tilt">
               <span className={`feature-ico ${s.tone || ''}`}><s.icon size={24} /></span>
               <h3>{s.title}</h3>
               <p>{s.text}</p>

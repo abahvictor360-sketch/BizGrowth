@@ -10,7 +10,7 @@ const plans = [
 ]
 
 const faqs = [
-  { q: 'Is there a free trial?', a: 'Yes — every plan comes with a 14-day free trial. No credit card is required to start.' },
+  { q: 'Is there a free trial?', a: 'Yes, every plan comes with a 14-day free trial. No credit card is required to start.' },
   { q: 'Can I change plans later?', a: 'Absolutely. Upgrade or downgrade at any time and we will prorate the difference automatically.' },
   { q: 'Do you offer done-for-you services?', a: 'Yes. Our strategists can set up dashboards, campaigns and automations for you. Talk to our team for a custom quote.' },
   { q: 'Which payment methods do you accept?', a: 'All major cards, bank transfer and mobile money for annual plans.' },
@@ -35,12 +35,12 @@ export default function Pricing() {
           {plans.map((p, i) => {
             const price = yearly ? Math.round(p.monthly * 0.8) : p.monthly
             return (
-              <Reveal key={p.name} delay={i * 80} className={`plan glass glass-hover ${p.featured ? 'glass-dark' : ''}`}>
+              <Reveal key={p.name} delay={i * 80} className={`plan glass glass-hover tilt ${p.featured ? 'glass-dark' : ''}`}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <h3>{p.name}</h3>
                   {p.featured && <span className="pill plan-tag">Most popular</span>}
                 </div>
-                <div className="price">${price}<small> /month{yearly ? ', billed yearly' : ''}</small></div>
+                <div className="price" key={price}><span className="price-num">${price}</span><small> /month{yearly ? ', billed yearly' : ''}</small></div>
                 <p className="desc">{p.desc}</p>
                 <ul>{p.features.map((f) => <li key={f}><Check size={16} />{f}</li>)}</ul>
                 <Link to="/contact" className={`btn btn-block ${p.featured ? 'btn-primary' : 'btn-glass'}`}>Start 14-day trial</Link>

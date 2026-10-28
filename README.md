@@ -1,6 +1,6 @@
 # BizGrowth
 
-Marketing site for BizGrowth — "Grow your business with smart digital solutions".
+Marketing site for BizGrowth: "Grow your business with smart digital solutions".
 React + Vite, liquid-glass UI, Plus Jakarta Sans (display) + Inter (body).
 
 ## Pages
@@ -16,7 +16,7 @@ npm run build   # production build to dist/
 ## Images
 Team photos live in `src/assets/team/` as background-removed WebP cutouts
 (processed with `rembg` / BiRefNet-portrait). Names and roles are placeholders in
-`src/data/team.js` — update them there.
+`src/data/team.js`, so update them there.
 
 ## Deploy
 Vercel: framework preset **Vite**, output `dist`. `vercel.json` rewrites all routes to
