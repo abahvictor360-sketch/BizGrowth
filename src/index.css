@@ -9,7 +9,7 @@
   --bg-2: #f6f5fc;
   --ink: #0e0c22;
   --ink-2: #3b3955;
-  --muted: #6e6c87;
+  --muted: #5c5a77;
   --line: rgba(14, 12, 34, 0.08);
 
   --brand: #5b4cf0;
@@ -80,7 +80,7 @@ button { font: inherit; }
     linear-gradient(180deg, var(--bg-2), var(--bg));
 }
 .bg-orbs span {
-  position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55;
+  position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; will-change: transform;
   animation: drift 22s ease-in-out infinite alternate;
 }
 .bg-orbs span:nth-child(1) { width: 420px; height: 420px; background: #a99cff; top: -120px; right: 8%; }
@@ -267,7 +267,7 @@ main { min-height: 60vh; }
   box-shadow: 0 4px 10px -4px rgba(40,30,130,.4);
 }
 .avatars span:first-child { margin-left: 0; }
-.avatars img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.avatars img { width: 100%; height: 100%; object-fit: cover; }
 .stars { color: var(--amber); letter-spacing: 2px; font-size: 14px; }
 
 /* ---------- 3D glass art (pure CSS) ---------- */
@@ -546,7 +546,7 @@ form.contact-form { padding: 32px; display: grid; grid-template-columns: 1fr 1fr
 
 /* Footer */
 .footer { margin: 56px 0 24px; padding: 40px; border-radius: 32px; display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; }
-.footer h5 { font-family: var(--font-display); font-size: 14px; margin: 0 0 14px; color: rgba(255,255,255,.5); font-weight: 600; letter-spacing: 0; }
+.footer .footer-h { font-family: var(--font-display); font-size: 14px; margin: 0 0 14px; color: rgba(255,255,255,.5); font-weight: 600; letter-spacing: 0; }
 .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font-size: 14.5px; }
 .footer ul a { color: rgba(255,255,255,.82); }
 .footer ul a:hover { color: #fff; }
@@ -577,11 +577,11 @@ form.contact-form { padding: 32px; display: grid; grid-template-columns: 1fr 1fr
 
 /* Hero entrance: words rise out of a blur, one after another */
 .enter, .hero-title .word { animation: enterUp .9s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i, 0) * 85ms + 80ms); }
-.hero-title .word { display: inline-block; white-space: pre; }
+.hero-title .word { display: inline-block; }
 @keyframes enterUp { from { opacity: 0; transform: translateY(28px); filter: blur(10px); } }
 
 .grad-text { background-size: 220% 100%; animation: shimmer 7s ease-in-out infinite alternate; }
-.hero-title .word.grad-text { white-space: normal; animation: enterUp .9s cubic-bezier(.2,.8,.2,1) both, shimmer 7s ease-in-out 1s infinite alternate; animation-delay: calc(var(--i) * 85ms + 80ms), 1s; }
+.hero-title .word.grad-text { animation: enterUp .9s cubic-bezier(.2,.8,.2,1) both, shimmer 7s ease-in-out 1s infinite alternate; animation-delay: calc(var(--i) * 85ms + 80ms), 1s; }
 @keyframes shimmer { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
 
 /* Hero art: entrance + pointer parallax by depth */
@@ -703,10 +703,13 @@ form.contact-form { padding: 32px; display: grid; grid-template-columns: 1fr 1fr
   .footer > div:first-child { grid-column: 1 / -1; }
 }
 @media (max-width: 620px) {
+  /* Phones: keep the look, drop the most expensive live effects */
+  .bg-orbs span { animation: none; }
+  .cube, .cyl, .dish, .glass-bars { -webkit-backdrop-filter: none; backdrop-filter: none; }
   .shell { padding: 0 16px; }
   .section { padding: 40px 0; }
   .nav .btn-dark { display: none; }
-  .hero { overflow: clip; }
+  .hero { overflow: clip; grid-template-columns: minmax(0, 1fr); }
   .hero-art { width: 560px; max-width: none; height: 560px; margin: 24px 0 -210px; transform: scale(.62); transform-origin: top left; }
   .stats { grid-template-columns: 1fr; }
   .bento { grid-template-columns: 1fr; }

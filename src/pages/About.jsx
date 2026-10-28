@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Target, HeartHandshake, Lightbulb } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
+import usePageMeta from '../components/usePageMeta.js'
 import Portrait from '../components/Portrait.jsx'
 import CountUp from '../components/CountUp.jsx'
 import { teamList } from '../data/team.js'
@@ -19,6 +20,7 @@ const values = [
 ]
 
 export default function About() {
+  usePageMeta('About us', 'Meet the BizGrowth team of strategists, marketers and engineers helping businesses grow with data, digital marketing and automation.')
   return (
     <>
       <section className="page-hero">

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import usePageMeta from '../components/usePageMeta.js'
 
 export default function NotFound() {
+  usePageMeta('Page not found', null, { noindex: true })
   return (
     <section className="page-hero" style={{ paddingBottom: 80 }}>
       <span className="eyebrow"><span className="dot" />404</span>

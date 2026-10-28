@@ -1,0 +1,9 @@
+# BizGrowth
+
+> Smart digital solutions for growing businesses: business analytics, digital marketing, process automation, web and e-commerce, CRM and security in one workspace.
+
+- [Home](/): Overview, key stats and testimonials
+- [Solutions](/solutions): Services and how we work
+- [Pricing](/pricing): Starter, Growth and Scale plans, FAQ
+- [About](/about): Team and values
+- [Contact](/contact): Book a demo or a free growth audit

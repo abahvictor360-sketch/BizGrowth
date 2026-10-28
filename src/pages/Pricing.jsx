@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Check, Plus } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
+import usePageMeta from '../components/usePageMeta.js'
 
 const plans = [
   { name: 'Starter', monthly: 29, desc: 'For solo founders and small teams getting organised.', features: ['1 workspace, 3 users', 'Core analytics dashboards', '5 automations', 'Email support'] },
@@ -17,6 +18,7 @@ const faqs = [
 ]
 
 export default function Pricing() {
+  usePageMeta('Pricing', 'Simple, transparent pricing for business growth tools. Start a free 14-day trial, then choose Starter, Growth or Scale.')
   const [yearly, setYearly] = useState(false)
   return (
     <>

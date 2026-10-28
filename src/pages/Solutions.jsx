@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { BarChart3, Megaphone, Workflow, Globe, ShieldCheck, Users, Check, ArrowRight } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
+import usePageMeta from '../components/usePageMeta.js'
 import Portrait from '../components/Portrait.jsx'
 import { team } from '../data/team.js'
 
@@ -21,6 +22,7 @@ const steps = [
 ]
 
 export default function Solutions() {
+  usePageMeta('Solutions', 'Business analytics, digital marketing, process automation, web design and e-commerce, CRM and security solutions built to help your business grow.')
   return (
     <>
       <section className="page-hero">

@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
+import usePageMeta from '../components/usePageMeta.js'
 
 export default function Contact() {
+  usePageMeta('Contact', 'Book a demo or request a free growth audit. Talk to the BizGrowth team about analytics, marketing and automation for your business.')
   const [sent, setSent] = useState(false)
   // No backend yet: open the visitor's mail client with the message pre-filled.
   function onSubmit(e) {

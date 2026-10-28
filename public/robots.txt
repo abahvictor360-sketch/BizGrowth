@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bizgrowth-psi.vercel.app/sitemap.xml

@@ -11,7 +11,7 @@ export default function Footer() {
         <p className="about">Smart digital solutions that help ambitious businesses measure, automate and grow, all from one beautiful workspace.</p>
       </div>
       <div>
-        <h5>Product</h5>
+        <p className="footer-h">Product</p>
         <ul>
           <li><Link to="/solutions">Solutions</Link></li>
           <li><Link to="/pricing">Pricing</Link></li>
@@ -19,7 +19,7 @@ export default function Footer() {
         </ul>
       </div>
       <div>
-        <h5>Company</h5>
+        <p className="footer-h">Company</p>
         <ul>
           <li><Link to="/about">About us</Link></li>
           <li><Link to="/about">Team</Link></li>
@@ -27,7 +27,7 @@ export default function Footer() {
         </ul>
       </div>
       <div>
-        <h5>Resources</h5>
+        <p className="footer-h">Resources</p>
         <ul>
           <li><Link to="/pricing">FAQ</Link></li>
           <li><Link to="/contact">Support</Link></li>

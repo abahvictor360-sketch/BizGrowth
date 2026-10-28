@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Search, Layers, Sparkles, Hexagon, Triangle, Circle, Square, Check, MoreHorizontal, ArrowUpRight } from 'lucide-react'
 import HeroArt from '../components/HeroArt.jsx'
 import Reveal from '../components/Reveal.jsx'
+import usePageMeta from '../components/usePageMeta.js'
 import Portrait from '../components/Portrait.jsx'
 import CountUp from '../components/CountUp.jsx'
 import { team, teamList } from '../data/team.js'
@@ -14,6 +15,7 @@ const stats = [
 ]
 
 export default function Home() {
+  usePageMeta(null, 'Grow your business with smart digital solutions. BizGrowth combines business analytics, digital marketing and automation in one workspace for small and growing businesses.')
   return (
     <>
       {/* Hero */}
@@ -21,7 +23,7 @@ export default function Home() {
         <div>
           <span className="eyebrow enter" style={{ '--i': 0 }}><span className="dot" />New: AI-powered growth insights</span>
           <h1 className="hero-title">
-            {['Grow', 'your', 'business', 'with'].map((w, i) => <span key={w} className="word" style={{ '--i': i + 1 }}>{w} </span>)}
+            {['Grow', 'your', 'business', 'with'].map((w, i) => <span key={w}><span className="word" style={{ '--i': i + 1 }}>{w}</span> </span>)}
             <span className="word grad-text" style={{ '--i': 5 }}>smart digital</span>{' '}
             <span className="word" style={{ '--i': 6 }}>solutions</span>
           </h1>
@@ -33,7 +35,7 @@ export default function Home() {
           <div className="hero-proof enter" style={{ '--i': 9 }}>
             <div className="avatars">
               {teamList.map((p) => (
-                <span key={p.name}><img src={p.img} alt="" /></span>
+                <span key={p.name}><img src={p.face} alt="" width="38" height="38" /></span>
               ))}
             </div>
             <div>
@@ -112,7 +114,7 @@ export default function Home() {
               <li><Check size={14} color="#b7aeff" /> Custom KPI tracking</li>
               <li><Check size={14} color="#b7aeff" /> Dedicated strategist</li>
             </ul>
-            <Link to="/solutions" className="btn btn-primary btn-sm">Learn more <ArrowRight size={14} /></Link>
+            <Link to="/solutions" className="btn btn-primary btn-sm">Explore solutions <ArrowRight size={14} /></Link>
           </Reveal>
 
           <Reveal delay={80} className="tile tile-feature glass">
