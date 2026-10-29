@@ -32,6 +32,7 @@ export default function Footer() {
           <li><Link to="/pricing">FAQ</Link></li>
           <li><Link to="/contact">Support</Link></li>
           <li><Link to="/contact">Book a demo</Link></li>
+          <li><Link to="/login">Sign in</Link></li>
         </ul>
       </div>
       <div className="footer-bottom">

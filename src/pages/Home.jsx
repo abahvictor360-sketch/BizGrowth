@@ -29,7 +29,7 @@ export default function Home() {
           </h1>
           <p className="lead enter" style={{ '--i': 7 }}>BizGrowth brings your analytics, marketing and automation into one clear workspace, so you can spot opportunities faster and scale with confidence.</p>
           <div className="hero-actions enter" style={{ '--i': 8 }}>
-            <Link to="/pricing" className="btn btn-primary"><span className="ico"><Sparkles size={14} /></span>Get started</Link>
+            <Link to="/signup" className="btn btn-primary"><span className="ico"><Sparkles size={14} /></span>Get started</Link>
             <Link to="/solutions" className="btn btn-glass"><Search size={16} />Explore solutions</Link>
           </div>
           <div className="hero-proof enter" style={{ '--i': 9 }}>
@@ -169,7 +169,7 @@ export default function Home() {
                 <div key={x.name} className={`price-mini glass ${x.featured ? 'featured' : ''}`}>
                   <span style={{ fontSize: 13, fontWeight: 600 }}>{x.name}</span>
                   <span className="p">{x.p}<small style={{ fontSize: 12, fontWeight: 500, color: 'var(--muted)' }}>/mo</small></span>
-                  <Link to="/pricing" className={`btn btn-sm ${x.featured ? 'btn-primary' : 'btn-glass'}`}>Choose</Link>
+                  <Link to={`/signup?plan=${x.name.toLowerCase()}`} className={`btn btn-sm ${x.featured ? 'btn-primary' : 'btn-glass'}`}>Choose</Link>
                 </div>
               ))}
             </div>
@@ -235,7 +235,7 @@ export default function Home() {
           <h2>Ready to grow smarter?</h2>
           <p>Start your free 14-day trial today. No credit card required, set up in minutes.</p>
           <div className="row">
-            <Link to="/pricing" className="btn btn-primary">Start free trial <ArrowRight size={16} /></Link>
+            <Link to="/signup" className="btn btn-primary">Start free trial <ArrowRight size={16} /></Link>
             <Link to="/contact" className="btn btn-ghost-light">Talk to sales</Link>
           </div>
         </div>

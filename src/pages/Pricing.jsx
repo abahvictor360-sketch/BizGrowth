@@ -45,7 +45,7 @@ export default function Pricing() {
                 <div className="price" key={price}><span className="price-num">${price}</span><small> /month{yearly ? ', billed yearly' : ''}</small></div>
                 <p className="desc">{p.desc}</p>
                 <ul>{p.features.map((f) => <li key={f}><Check size={16} />{f}</li>)}</ul>
-                <Link to="/contact" className={`btn btn-block ${p.featured ? 'btn-primary' : 'btn-glass'}`}>Start 14-day trial</Link>
+                <Link to={`/signup?plan=${p.name.toLowerCase()}`} className={`btn btn-block ${p.featured ? 'btn-primary' : 'btn-glass'}`}>Start 14-day trial</Link>
               </Reveal>
             )
           })}

@@ -30,8 +30,8 @@ export default function Navbar() {
           ))}
         </ul>
         <div className="nav-cta">
-          <Link to="/contact" className="btn btn-glass btn-sm">Sign in</Link>
-          <Link to="/pricing" className="btn btn-dark btn-sm">Start for free <ArrowRight size={14} /></Link>
+          <Link to="/login" className="btn btn-glass btn-sm">Sign in</Link>
+          <Link to="/signup" className="btn btn-dark btn-sm">Start for free <ArrowRight size={14} /></Link>
           <button className="nav-toggle" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen((o) => !o)}>
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -41,7 +41,10 @@ export default function Navbar() {
         {links.map((l) => (
           <NavLink key={l.to} to={l.to} end={l.to === '/'} onClick={close}>{l.label}</NavLink>
         ))}
-        <Link to="/pricing" className="btn btn-primary btn-block" onClick={close} style={{ marginTop: 8 }}>Start for free</Link>
+        <div className="mobile-auth">
+          <Link to="/login" className="btn btn-glass btn-block" onClick={close}>Sign in</Link>
+          <Link to="/signup" className="btn btn-primary btn-block" onClick={close}>Start for free</Link>
+        </div>
       </div>
     </header>
   )
